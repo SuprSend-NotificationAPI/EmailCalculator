@@ -1,0 +1,83 @@
+<div class="container">
+    <h4>Email Price Comparison Calculator</h4>
+    <form id="calculatorForm">
+      <!-- Step 1: Choose Email Providers -->
+      <div class="question" id="question1">
+        <h2>Step 1: Choose Email Providers</h2>
+        <p>Select two email providers to compare:</p>
+        <div class="email-providers">
+          <select id="emailProvider1" class="email-provider-dropdown">
+            <option value="" disabled selected>Choose provider 1</option>
+            <option value="SendGrid (by Twilio)">SendGrid (by Twilio)</option>
+            <option value="Mailgun">Mailgun</option>
+            <option value="Amazon SES">Amazon SES</option>
+            <option value="Mailchimp">Mailchimp</option>
+            <option value="SMTP.com">SMTP.com</option>
+            <option value="Postmark">Postmark</option>
+            <option value="Mailjet">Mailjet</option>
+            <option value="SparkPost">SparkPost</option>
+            <option value="Elastic Email">Elastic Email</option>
+            <option value="SendinBlue">SendinBlue</option>
+            <option value="SocketLabs">SocketLabs</option>
+            <option value="Netcore (formerly Pepipost)">Netcore (formerly Pepipost)</option>
+            <option value="MailerLite">MailerLite</option>
+            
+          </select>
+          <span class="vs">V/S</span>
+          <select id="emailProvider2" class="email-provider-dropdown">
+            <option value="" disabled selected>Choose provider 2</option>
+            <option value="SendGrid (by Twilio)">SendGrid (by Twilio)</option>
+            <option value="Mailgun">Mailgun</option>
+            <option value="Amazon SES">Amazon SES</option>
+            <option value="Mailchimp">Mailchimp</option>
+            <option value="SMTP.com">SMTP.com</option>
+            <option value="Postmark">Postmark</option>
+            <option value="Mailjet">Mailjet</option>
+            <option value="SparkPost">SparkPost</option>
+            <option value="Elastic Email">Elastic Email</option>
+            <option value="SendinBlue">SendinBlue</option>
+            <option value="SocketLabs">SocketLabs</option>
+            <option value="Netcore (formerly Pepipost)">Netcore (formerly Pepipost)</option>
+            <option value="MailerLite">MailerLite</option>
+            
+          </select>
+        </div>
+        <div class="button-container">
+          <button type="button" class="next-button" onclick="nextStep(2)">Next</button>
+
+        </div>
+      </div>
+      <!-- Step 2: Email Sending -->
+      <div class="question" id="question2">
+        <h2>Step 2: Email Sending</h2>
+        <p>How many emails will you be sending per month?</p>
+        <div class="options">
+          <label>
+            <input type="number" id="emailSentInput" placeholder="Enter number of emails">
+          </label>
+        </div>
+        <div class="button-container">
+          <button type="button" class="back-button" onclick="prevStep(1)">Back</button>
+          <button type="button" class="next-button" onclick="handleEmailSentInput()">Next</button>
+        </div>
+      </div>
+      <!-- Step 3: Price Comparison -->
+<div class="question" id="question3">
+  <h2>Price Comparison</h2>
+  <div class="vendor-container">
+    <div class="vendor">
+      <h4><span id="emailProvider1Name"></span></h4>
+      <p class="vendor-price" id="emailProvider1Price">$0.00</p>
+      <div class="vendor-chart" id="emailProvider1Chart"></div>
+    </div>
+    <div class="vendor">
+      <h4><span id="emailProvider2Name"></span></h4>
+      <p class="vendor-price" id="emailProvider2Price">$0.00</p>
+      <div class="vendor-chart" id="emailProvider2Chart"></div>
+    </div>
+  </div>
+  <div class="button-container">
+    <button type="button" class="back-button" onclick="prevStep(2)">Back</button>
+    <button type="button" class="reset-button next-button" onclick="resetCalculator()">Reset</button>
+  </div>
+</div>
