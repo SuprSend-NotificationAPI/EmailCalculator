@@ -1,0 +1,234 @@
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap">
+  <style>
+    /* Your CSS styles here */
+    .container {
+      max-width: 800px;
+      padding: 20px;
+      background-color: #DBB7FF;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeAndSlideIn 0.5s forwards;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeAndSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .question {
+      display: none;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      animation: fadeAndSlideIn 0.5s forwards;
+      opacity: 0;
+      transform: translateY(20px);
+      margin-bottom: 30px;
+      margin-top: 20px;
+    }
+
+    .question:first-child {
+      display: block;
+    }
+
+    .question h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .question p {
+      font-size: 18px;
+      margin bottom: 20px;
+      color: #555;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .next-button, .back-button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+
+    .back-button {
+      background-color: #6C757D;
+    }
+
+    .next-button:hover, .back-button:hover {
+      background-color: #0056B3;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .result-container {
+      margin-top: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul li {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .vendor-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .vendor {
+      flex: 1;
+      text-align: center;
+      max-width: 48%;
+      margin-bottom: 15px;
+      padding: 20px;
+      background-color: #F9F9F9;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s, transform 0.3s;
+      overflow: hidden;
+    }
+
+    .vendor:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .vendor h4 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .vendor-price {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #007BFF;
+    }
+
+    .vendor-chart {
+      background-color: #007BFF;
+      height: 20px;
+      border-radius: 5px;
+      max-width: 100%;
+      width: 0;
+      transition: width 0.5s, box-shadow 0.5s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .vendor-chart:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .vendor-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .vendor {
+        width: 100%;
+      }
+    }
+
+    /* Additional styles for email provider dropdown and layout */
+    .email-providers {
+      display: flex;
+      align-items: center;
+    }
+
+    .email-provider-dropdown {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #800080;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      background-color: #F9F9F9;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .email-provider-dropdown:hover {
+      border-color: #550055;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .vs {
+      margin: 0 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    @media (max-width: 600px) {
+  .email-providers {
+    flex-direction: column;
+  }
+
+  .vs {
+    margin: 15px 0; /* Change margin for spacing between the inputs on mobile */
+  }
+}
+    
+    @media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .vendor-container {
+    flex-direction: column;
+  }
+
+  .vendor {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+</style>
+
