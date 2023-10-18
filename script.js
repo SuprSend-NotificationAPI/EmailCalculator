@@ -169,7 +169,7 @@ function calculateProviderPrice(providerName, emailSent) {
       } else if (emailSent <= 500000) {
         price = 425;
       } else {
-        price = "Contact provider for pricing";
+        price = 425;
       }
       break;
 
